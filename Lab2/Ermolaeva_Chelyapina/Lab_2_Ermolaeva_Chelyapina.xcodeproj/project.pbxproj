@@ -6,40 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		CE1DF488307EC51D006977A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE1DF46F307EC50F006977A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE1DF476307EC510006977A2;
-			remoteInfo = Lab_2_Ermolaeva_Chelyapina;
-		};
-		CE1DF492307EC51D006977A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE1DF46F307EC50F006977A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE1DF476307EC510006977A2;
-			remoteInfo = Lab_2_Ermolaeva_Chelyapina;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		CE1DF477307EC510006977A2 /* Lab_2_Ermolaeva_Chelyapina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab_2_Ermolaeva_Chelyapina.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE1DF487307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab_2_Ermolaeva_ChelyapinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE1DF491307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab_2_Ermolaeva_ChelyapinaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CE1DF48A307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Lab_2_Ermolaeva_ChelyapinaTests;
-			sourceTree = "<group>";
-		};
-		CE1DF494307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Lab_2_Ermolaeva_ChelyapinaUITests;
-			sourceTree = "<group>";
-		};
 		CE1DF4BD307EC619006977A2 /* Lab_2_Ermolaeva_Chelyapina */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Lab_2_Ermolaeva_Chelyapina;
@@ -55,20 +26,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE1DF484307EC51D006977A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE1DF48E307EC51D006977A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -76,8 +33,6 @@
 			isa = PBXGroup;
 			children = (
 				CE1DF4BD307EC619006977A2 /* Lab_2_Ermolaeva_Chelyapina */,
-				CE1DF48A307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests */,
-				CE1DF494307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests */,
 				CE1DF478307EC510006977A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,8 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				CE1DF477307EC510006977A2 /* Lab_2_Ermolaeva_Chelyapina.app */,
-				CE1DF487307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests.xctest */,
-				CE1DF491307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,52 +70,6 @@
 			productReference = CE1DF477307EC510006977A2 /* Lab_2_Ermolaeva_Chelyapina.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CE1DF486307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CE1DF49E307EC51D006977A2 /* Build configuration list for PBXNativeTarget "Lab_2_Ermolaeva_ChelyapinaTests" */;
-			buildPhases = (
-				CE1DF483307EC51D006977A2 /* Sources */,
-				CE1DF484307EC51D006977A2 /* Frameworks */,
-				CE1DF485307EC51D006977A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CE1DF489307EC51D006977A2 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CE1DF48A307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests */,
-			);
-			name = Lab_2_Ermolaeva_ChelyapinaTests;
-			packageProductDependencies = (
-			);
-			productName = Lab_2_Ermolaeva_ChelyapinaTests;
-			productReference = CE1DF487307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CE1DF490307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CE1DF4A1307EC51D006977A2 /* Build configuration list for PBXNativeTarget "Lab_2_Ermolaeva_ChelyapinaUITests" */;
-			buildPhases = (
-				CE1DF48D307EC51D006977A2 /* Sources */,
-				CE1DF48E307EC51D006977A2 /* Frameworks */,
-				CE1DF48F307EC51D006977A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CE1DF493307EC51D006977A2 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				CE1DF494307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests */,
-			);
-			name = Lab_2_Ermolaeva_ChelyapinaUITests;
-			packageProductDependencies = (
-			);
-			productName = Lab_2_Ermolaeva_ChelyapinaUITests;
-			productReference = CE1DF491307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,14 +82,6 @@
 				TargetAttributes = {
 					CE1DF476307EC510006977A2 = {
 						CreatedOnToolsVersion = 16.0;
-					};
-					CE1DF486307EC51D006977A2 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = CE1DF476307EC510006977A2;
-					};
-					CE1DF490307EC51D006977A2 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = CE1DF476307EC510006977A2;
 					};
 				};
 			};
@@ -201,28 +100,12 @@
 			projectRoot = "";
 			targets = (
 				CE1DF476307EC510006977A2 /* Lab_2_Ermolaeva_Chelyapina */,
-				CE1DF486307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaTests */,
-				CE1DF490307EC51D006977A2 /* Lab_2_Ermolaeva_ChelyapinaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CE1DF475307EC510006977A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE1DF485307EC51D006977A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE1DF48F307EC51D006977A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,34 +122,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE1DF483307EC51D006977A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE1DF48D307EC51D006977A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CE1DF489307EC51D006977A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CE1DF476307EC510006977A2 /* Lab_2_Ermolaeva_Chelyapina */;
-			targetProxy = CE1DF488307EC51D006977A2 /* PBXContainerItemProxy */;
-		};
-		CE1DF493307EC51D006977A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CE1DF476307EC510006977A2 /* Lab_2_Ermolaeva_Chelyapina */;
-			targetProxy = CE1DF492307EC51D006977A2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CE1DF499307EC51D006977A2 /* Debug */ = {
@@ -446,74 +302,6 @@
 			};
 			name = Release;
 		};
-		CE1DF49F307EC51D006977A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "erche.Lab-2-Ermolaeva-ChelyapinaTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lab_2_Ermolaeva_Chelyapina.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lab_2_Ermolaeva_Chelyapina";
-			};
-			name = Debug;
-		};
-		CE1DF4A0307EC51D006977A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "erche.Lab-2-Ermolaeva-ChelyapinaTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lab_2_Ermolaeva_Chelyapina.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lab_2_Ermolaeva_Chelyapina";
-			};
-			name = Release;
-		};
-		CE1DF4A2307EC51D006977A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "erche.Lab-2-Ermolaeva-ChelyapinaUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Lab_2_Ermolaeva_Chelyapina;
-			};
-			name = Debug;
-		};
-		CE1DF4A3307EC51D006977A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "erche.Lab-2-Ermolaeva-ChelyapinaUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Lab_2_Ermolaeva_Chelyapina;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -531,24 +319,6 @@
 			buildConfigurations = (
 				CE1DF49C307EC51D006977A2 /* Debug */,
 				CE1DF49D307EC51D006977A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CE1DF49E307EC51D006977A2 /* Build configuration list for PBXNativeTarget "Lab_2_Ermolaeva_ChelyapinaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CE1DF49F307EC51D006977A2 /* Debug */,
-				CE1DF4A0307EC51D006977A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CE1DF4A1307EC51D006977A2 /* Build configuration list for PBXNativeTarget "Lab_2_Ermolaeva_ChelyapinaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CE1DF4A2307EC51D006977A2 /* Debug */,
-				CE1DF4A3307EC51D006977A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
