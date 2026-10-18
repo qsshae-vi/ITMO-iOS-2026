@@ -1,5 +1,5 @@
-import Foundation // для работы с ошибками
-import Combine // для observable
+import Foundation
+import Combine 
 
 // ViewModel работает на MainActor, чтобы безопасно обновлять состояние UI
 @MainActor final class FunFactViewModel: ObservableObject {
