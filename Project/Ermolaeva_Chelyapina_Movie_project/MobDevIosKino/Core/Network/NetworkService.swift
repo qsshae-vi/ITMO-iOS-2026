@@ -4,6 +4,7 @@ import Foundation
 enum Endpoint {
     case films
     case filmFacts(id: Int)
+    case exactFilm(id: Int)
 
     private var baseURL: String {
         "https://kinopoiskapiunofficial.tech"
@@ -16,6 +17,9 @@ enum Endpoint {
 
         case .filmFacts(let id):
             return "/api/v2.2/films/\(id)/facts"
+        
+        case .exactFilm(let id):
+            return "/api/v2.2/films/\(id)"
         }
     }
 

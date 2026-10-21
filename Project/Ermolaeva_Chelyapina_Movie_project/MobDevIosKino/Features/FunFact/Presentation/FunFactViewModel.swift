@@ -5,20 +5,23 @@ import Combine
 @MainActor final class FunFactViewModel: ObservableObject {
 
     // возможные состояния экрана
+   @Published private(set) var state: State = .loading // private - для setter
+
+    private let getFilmFacts: GetFilmFactsUseCase
+    private let filmId: Int
+    
+    private let settings: UserDefaultsSettings
+    
     enum State: Equatable {
         case loading
         case loaded(FunFactModel)
         case error(String)
     }
-
-    @Published private(set) var state: State = .loading // private - для setter
-
-    private let getFilmFacts: GetFilmFactsUseCase
-    private let filmId: Int
-
-    init(getFilmFacts: GetFilmFactsUseCase, filmId: Int) {
+    
+    init(getFilmFacts: GetFilmFactsUseCase, filmId: Int, settings: UserDefaultsSettings) {
         self.getFilmFacts = getFilmFacts
         self.filmId = filmId
+        self.settings = settings
     }
 
     func load() async {
@@ -38,7 +41,8 @@ import Combine
 
             // выбираем случайный факт, исключая bloopers и спойлеры
             let fact = facts
-                .filter { $0.type == .fact && !$0.isSpoiler }
+                .filter { fact in fact.type  == .fact && (!settings.hideSpoilers || !fact.isSpoiler)
+                }
                 .randomElement()
 
             guard let fact else {
