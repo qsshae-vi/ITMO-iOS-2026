@@ -1,18 +1,25 @@
-# Lab 2 - Introduction to UI Development
+# Лабораторная работа № 2. Разработка пользовательского интерфейса
 
-**Authors:**
-- Ksenia Ermolaeva
-- Ekaterina Chelyapina
+**Выполнили:**
+- Ермолаева Ксения
+- Челяпина Екатерина
 
-**Group:** K4140
+**Группа:** К4140
 
-## Description
+## Описание
 
-This lab focuses on the fundamentals of building user interfaces for iOS applications.
+Реализованы два экрана: на первом реализована генерация случайного числа (от 1 до 100) по нажатию кнопки, а также переход на второй экран с помощью отдельной кнопки.
 
-We chose **SwiftUI** to implement a simple application featuring navigation between two screens and updating displayed text by tapping a button. The interface was also customized with a different color scheme.
+## Структура проекта
 
-## Technologies
-- Swift
-- SwiftUI
-- Xcode
+- `Lab_2_Ermolaeva_Chelyapina.xcodeproj` - проект Xcode.
+- `Lab_2_Ermolaeva_Chelyapina/` - исходный код приложения.
+- `Views/` - представления экранов.
+- `Assets.xcassets/` - графические ресурсы.
+- `Lab_2_Ermolaeva_ChelyapinaApp.swift` - точка входа в приложение.
+
+## Запуск
+
+1. Открыть `Lab_2_Ermolaeva_Chelyapina.xcodeproj` в Xcode.
+2. Выбрать симулятор iPhone (протестировано на реальном устройстве iPhone 15, симуляторе iPhone 16).
+3. Запустить приложение.
