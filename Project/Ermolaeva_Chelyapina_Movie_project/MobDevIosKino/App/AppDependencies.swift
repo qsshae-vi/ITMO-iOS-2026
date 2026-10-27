@@ -44,16 +44,42 @@ extension AppDependencies {
 }
 
 extension AppDependencies {
-    func makeFunFactViewModel(filmId: Int) -> FunFactViewModel {
+    func makeFunFactViewModel(filmId: Int, filmTitle: String) -> FunFactViewModel {
         let filmFactsRepository: FilmFactsRepository =
             FilmFactsRepositoryImpl(service: networkService)
         let getFilmFacts: GetFilmFactsUseCase =
             GetFilmFactsUseCaseImpl(repository: filmFactsRepository)
 
+        let viewedRepository = makeViewedFunFactRepository()
+        let saveViewedFact: SaveViewedFunFactUseCase =
+            SaveViewedFunFactUseCaseImpl(repository: viewedRepository)
+        let getViewedFacts: GetViewedFactsUseCase =
+            GetViewedFactsUseCaseImpl(repository: viewedRepository)
+
         return FunFactViewModel(
             getFilmFacts: getFilmFacts,
             filmId: filmId,
-            settings: settings
+            filmTitle: filmTitle,
+            settings: settings,
+            saveViewedFact: saveViewedFact,
+            getViewedFacts: getViewedFacts
         )
+    }
+}
+
+extension AppDependencies {
+    func makeViewedFactsViewModel() -> ViewedFactsViewModel {
+        let getViewedFacts: GetViewedFactsUseCase =
+            GetViewedFactsUseCaseImpl(repository: makeViewedFunFactRepository())
+        let deleteViewedFact: DeleteViewedFactUseCase =
+                    DeleteViewedFactUseCaseImpl(repository: makeViewedFunFactRepository())
+        return ViewedFactsViewModel(getViewedFacts: getViewedFacts, deleteViewedFact: deleteViewedFact)
+    }
+}
+
+extension AppDependencies {
+    private func makeViewedFunFactRepository() -> ViewedFunFactRepository {
+        let storage = ViewedFunFactStorage(context: container.mainContext)
+        return ViewedFunFactRepositoryImpl(storage: storage)
     }
 }

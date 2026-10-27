@@ -9,6 +9,7 @@ struct MobDevIosKinoApp: App {
         do {
             let container = try ModelContainer(
                 for: CachedFilm.self,
+                     ViewedFunFact.self
             )
             self.deps = AppDependencies(container: container)
         } catch {

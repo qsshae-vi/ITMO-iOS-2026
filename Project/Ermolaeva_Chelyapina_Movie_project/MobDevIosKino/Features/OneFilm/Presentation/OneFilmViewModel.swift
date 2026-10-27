@@ -24,6 +24,8 @@ final class OneFilmViewModel: ObservableObject {
         self.getOneFilm = getOneFilm
     }
     
+    
+    
     func setHideSpoilers(_ value: Bool) {
         hideSpoilers = value
         settings.hideSpoilers = value

@@ -3,14 +3,17 @@ import SwiftUI
 struct OneFilmView: View {
     @StateObject private var viewModel: OneFilmViewModel
 
-    let onShowFunFact: () -> Void
+    let onShowFunFact: (String) -> Void
+    let onShowViewedFacts: () -> Void
 
     init(
         viewModel: @autoclosure @escaping() -> OneFilmViewModel,
-        onShowFunFact: @escaping () -> Void
+        onShowFunFact: @escaping (String) -> Void,
+        onShowViewedFacts: @escaping () -> Void
     ) {
         _viewModel = StateObject(wrappedValue: viewModel())
         self.onShowFunFact = onShowFunFact
+        self.onShowViewedFacts = onShowViewedFacts
     }
 
     var body: some View {
@@ -29,6 +32,15 @@ struct OneFilmView: View {
         .task {
             await viewModel.load()
         }
+        .toolbar {
+               ToolbarItem(placement: .topBarTrailing) {
+                   Button {
+                       onShowViewedFacts()
+                   } label: {
+                       Image(systemName: "clock.arrow.circlepath")
+                   }
+               }
+           }
     }
 
     @ViewBuilder
@@ -108,9 +120,9 @@ struct OneFilmView: View {
                 .tint(.pink)
 
                 Button {
-                    onShowFunFact()
+                    onShowFunFact(film.title)
                 } label: {
-                    Text("Interesting fact")
+                    Text("Интересный факт")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
