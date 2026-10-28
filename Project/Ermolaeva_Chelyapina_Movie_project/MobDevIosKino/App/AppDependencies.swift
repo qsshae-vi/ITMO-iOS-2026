@@ -44,6 +44,14 @@ extension AppDependencies {
 }
 
 extension AppDependencies {
+    func makeSearchViewModel() -> SearchViewModel {
+        let repository: SearchRepository = SearchRepositoryImpl(service: networkService)
+        let useCase: SearchFilmsUseCase = SearchFilmsUseCaseImpl(repository: repository)
+        return SearchViewModel(searchFilms: useCase)
+    }
+}
+
+extension AppDependencies {
     func makeFunFactViewModel(filmId: Int, filmTitle: String) -> FunFactViewModel {
         let filmFactsRepository: FilmFactsRepository =
             FilmFactsRepositoryImpl(service: networkService)

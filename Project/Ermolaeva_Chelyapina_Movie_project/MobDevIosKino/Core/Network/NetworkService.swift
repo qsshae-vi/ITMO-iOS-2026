@@ -1,34 +1,42 @@
 import Foundation
 
-// Описывает доступные API-маршруты
 enum Endpoint {
     case films
     case filmFacts(id: Int)
     case exactFilm(id: Int)
-
-    private var baseURL: String {
-        "https://kinopoiskapiunofficial.tech"
-    }
+    case searchFilms(keyword: String, page: Int)
 
     var path: String {
-        switch self {   // проверка текущего значения экземпляра
-        case .films:
-            return "/api/v2.2/films"
+        switch self {
+        case .films: return "/api/v2.2/films"
+        case .filmFacts(let id): return "/api/v2.2/films/\(id)/facts"
+        case .exactFilm(let id): return "/api/v2.2/films/\(id)"
+        case .searchFilms: return "/api/v2.1/films/search-by-keyword"
+        }
+    }
 
-        case .filmFacts(let id):
-            return "/api/v2.2/films/\(id)/facts"
-        
-        case .exactFilm(let id):
-            return "/api/v2.2/films/\(id)"
+    var queryItems: [URLQueryItem] {
+            switch self {
+            case .searchFilms(let keyword, let page):
+                return [
+                    URLQueryItem(name: "keyword", value: keyword),
+                    URLQueryItem(name: "page", value: String(page))
+                ]
+            default:
+                return []
         }
     }
 
     var url: URL? {
-        URL(string: baseURL + path)
+        var components = URLComponents(string: AppConfig.baseURL + path)
+        if !queryItems.isEmpty {
+            components?.queryItems = queryItems
+        }
+        return components?.url
     }
 }
 
 protocol NetworkService {
-    func request<T: Decodable>(endpoint : Endpoint) // один и тот же request для разных ответов API за счёт generic
+    func request<T: Decodable>(endpoint : Endpoint)
     async throws -> T
 }

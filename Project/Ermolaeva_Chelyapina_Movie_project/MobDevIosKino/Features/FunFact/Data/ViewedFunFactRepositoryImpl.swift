@@ -10,13 +10,13 @@ final class ViewedFunFactRepositoryImpl: ViewedFunFactRepository {
         filmTitle: String,
         fact: FunFactModel
     ) async throws {
-        if let viewedFact = try storage.get(
+        if let viewedFact = try  storage.get(
             filmId: filmId,
             text: fact.text
         ) {
             try storage.update(viewedFact)
         } else {
-            try storage.save(
+            try  storage.save(
                 filmId: filmId,
                 filmTitle: filmTitle,
                 fact: fact
@@ -24,7 +24,7 @@ final class ViewedFunFactRepositoryImpl: ViewedFunFactRepository {
         }
     }
     
-    func getViewedFacts() async throws -> [ViewedFunFactModel] { // для загрузки уже просмотренных
+    func getViewedFacts() async throws -> [ViewedFunFactModel] { // загрузка уже просмотренных фактов
         let viewedFacts = try storage.getAll()
 
         return viewedFacts.enumerated().map { index, fact in
@@ -44,13 +44,12 @@ final class ViewedFunFactRepositoryImpl: ViewedFunFactRepository {
         filmId: Int,
         text: String
     ) async throws {
-        guard let viewedFact = try  storage.get(
+        guard let viewedFact = try storage.get(
             filmId: filmId,
             text: text
         ) else {
             return
         }
-
-        try  storage.delete(viewedFact)
+        try storage.delete(viewedFact)
     }
 }
