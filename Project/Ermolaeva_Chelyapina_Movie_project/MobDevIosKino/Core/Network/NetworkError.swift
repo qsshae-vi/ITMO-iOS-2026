@@ -4,6 +4,7 @@ enum NetworkError: Error {
     case server(statusCode: Int)
     case decoding
     case unknown
+    case timeout
 }
 
 extension NetworkError {
@@ -17,6 +18,8 @@ extension NetworkError {
             return "Ошибка обработки данных"
         case .unknown:
             return "Что-то пошло не так"
+        case .timeout:
+            return "Время ожидания истекло"
         case .server(let code):
             switch code {
             case 400:       return "Некорректный запрос"

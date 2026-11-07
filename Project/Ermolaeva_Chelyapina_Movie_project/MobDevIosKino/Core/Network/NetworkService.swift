@@ -1,11 +1,13 @@
 import Foundation
 
+/// Формирование URL
 enum Endpoint {
-    case films
+    case films(type: String?, ratingFrom: Double?, page: Int)
     case filmFacts(id: Int)
     case exactFilm(id: Int)
     case searchFilms(keyword: String, page: Int)
 
+    // вычисляемое свойство
     var path: String {
         switch self {
         case .films: return "/api/v2.2/films"
@@ -16,14 +18,23 @@ enum Endpoint {
     }
 
     var queryItems: [URLQueryItem] {
-            switch self {
-            case .searchFilms(let keyword, let page):
-                return [
-                    URLQueryItem(name: "keyword", value: keyword),
-                    URLQueryItem(name: "page", value: String(page))
-                ]
-            default:
-                return []
+        switch self {
+        case .films(let type, let ratingFrom, let page):
+            var items: [URLQueryItem] = [
+                URLQueryItem(name: "page", value: String(page))
+            ]
+            if let type { items.append(.init(name: "type", value: type)) }
+            if let ratingFrom { items.append(.init(name: "ratingFrom", value: String(ratingFrom))) }
+            return items
+            
+        case .searchFilms(let keyword, let page):
+            return [
+                URLQueryItem(name: "keyword", value: keyword),
+                URLQueryItem(name: "page", value: String(page))
+            ]
+            
+        default:
+            return []
         }
     }
 
@@ -36,6 +47,7 @@ enum Endpoint {
     }
 }
 
+// контракт сетевого сервиса
 protocol NetworkService {
     func request<T: Decodable>(endpoint : Endpoint)
     async throws -> T

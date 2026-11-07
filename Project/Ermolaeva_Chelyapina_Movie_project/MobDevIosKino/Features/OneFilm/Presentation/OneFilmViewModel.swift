@@ -14,6 +14,7 @@ final class OneFilmViewModel: ObservableObject {
     enum State: Equatable {
         case loading
         case loaded(OneFilmModel)
+        case offline
         case error(String)
     }
     
@@ -23,8 +24,6 @@ final class OneFilmViewModel: ObservableObject {
         self.filmId = filmId
         self.getOneFilm = getOneFilm
     }
-    
-    
     
     func setHideSpoilers(_ value: Bool) {
         hideSpoilers = value
@@ -47,8 +46,20 @@ final class OneFilmViewModel: ObservableObject {
             
             state = .loaded(filmInfo)
             
+        } catch let error as NetworkError {
+            switch error {
+            case .noConnection:
+                state = .offline
+                
+            default:
+                state = .error(error.userMessage)
+            }
+            
         } catch {
-            state = .error(error.localizedDescription)
+            // Self.logger.error("Film loading failed: \(error)")
+            state = .error(
+                "Не удалось загрузить информацию о фильме. Попробуйте позже."
+            )
         }
     }
 }
