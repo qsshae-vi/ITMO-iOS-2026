@@ -21,11 +21,19 @@
 			remoteGlobalIDString = 000000000000000100000000;
 			remoteInfo = MobDevIosKino;
 		};
+		C432F3A130A11964002BE3B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000000000000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000100000000;
+			remoteInfo = MobDevIosKino;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* MobDevIosKino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobDevIosKino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C432F38E30A11404002BE3B2 /* MobDevIosKinoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobDevIosKinoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C432F39D30A11964002BE3B2 /* MobDevIosKinoUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobDevIosKinoUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44BACA130892F6A00B89814 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		C4C6B1CA306565B100ED4479 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CE1DF5CE3080BC42006977A2 /* Secrets.example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.example.xcconfig; sourceTree = "<group>"; };
@@ -56,6 +64,11 @@
 			path = MobDevIosKinoUITests;
 			sourceTree = "<group>";
 		};
+		C432F39E30A11964002BE3B2 /* MobDevIosKinoUnitTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MobDevIosKinoUnitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +86,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C432F39A30A11964002BE3B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +103,7 @@
 				C4C6B1CA306565B100ED4479 /* .gitignore */,
 				000000000000000000000010 /* MobDevIosKino */,
 				C432F38F30A11404002BE3B2 /* MobDevIosKinoUITests */,
+				C432F39E30A11964002BE3B2 /* MobDevIosKinoUnitTests */,
 				000000000000000000000020 /* Products */,
 				CE1DF5CE3080BC42006977A2 /* Secrets.example.xcconfig */,
 				C44BACA130892F6A00B89814 /* Secrets.xcconfig */,
@@ -94,6 +115,7 @@
 			children = (
 				000000000000000000000120 /* MobDevIosKino.app */,
 				C432F38E30A11404002BE3B2 /* MobDevIosKinoUITests.xctest */,
+				C432F39D30A11964002BE3B2 /* MobDevIosKinoUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +166,29 @@
 			productReference = C432F38E30A11404002BE3B2 /* MobDevIosKinoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C432F39C30A11964002BE3B2 /* MobDevIosKinoUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C432F3A330A11964002BE3B2 /* Build configuration list for PBXNativeTarget "MobDevIosKinoUnitTests" */;
+			buildPhases = (
+				C432F39930A11964002BE3B2 /* Sources */,
+				C432F39A30A11964002BE3B2 /* Frameworks */,
+				C432F39B30A11964002BE3B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C432F3A230A11964002BE3B2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C432F39E30A11964002BE3B2 /* MobDevIosKinoUnitTests */,
+			);
+			name = MobDevIosKinoUnitTests;
+			packageProductDependencies = (
+			);
+			productName = MobDevIosKinoUnitTests;
+			productReference = C432F39D30A11964002BE3B2 /* MobDevIosKinoUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -160,6 +205,10 @@
 					C432F38D30A11404002BE3B2 = {
 						CreatedOnToolsVersion = 27.0;
 						LastSwiftMigration = 2700;
+						TestTargetID = 000000000000000100000000;
+					};
+					C432F39C30A11964002BE3B2 = {
+						CreatedOnToolsVersion = 27.0;
 						TestTargetID = 000000000000000100000000;
 					};
 				};
@@ -180,6 +229,7 @@
 			targets = (
 				000000000000000100000000 /* MobDevIosKino */,
 				C432F38D30A11404002BE3B2 /* MobDevIosKinoUITests */,
+				C432F39C30A11964002BE3B2 /* MobDevIosKinoUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +245,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C432F38C30A11404002BE3B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C432F39B30A11964002BE3B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -220,6 +277,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C432F39930A11964002BE3B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -227,6 +291,11 @@
 			isa = PBXTargetDependency;
 			target = 000000000000000100000000 /* MobDevIosKino */;
 			targetProxy = C432F39230A11404002BE3B2 /* PBXContainerItemProxy */;
+		};
+		C432F3A230A11964002BE3B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 000000000000000100000000 /* MobDevIosKino */;
+			targetProxy = C432F3A130A11964002BE3B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -491,6 +560,49 @@
 			};
 			name = Release;
 		};
+		C432F3A430A11964002BE3B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yourcompany.MobDevIosKinoUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobDevIosKino.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobDevIosKino";
+			};
+			name = Debug;
+		};
+		C432F3A530A11964002BE3B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yourcompany.MobDevIosKinoUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobDevIosKino.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobDevIosKino";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -517,6 +629,15 @@
 			buildConfigurations = (
 				C432F39530A11404002BE3B2 /* Debug */,
 				C432F39630A11404002BE3B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C432F3A330A11964002BE3B2 /* Build configuration list for PBXNativeTarget "MobDevIosKinoUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C432F3A430A11964002BE3B2 /* Debug */,
+				C432F3A530A11964002BE3B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
