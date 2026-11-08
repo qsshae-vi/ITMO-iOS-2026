@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 // ViewModel работает на MainActor, чтобы безопасно обновлять состояние UI
 @MainActor

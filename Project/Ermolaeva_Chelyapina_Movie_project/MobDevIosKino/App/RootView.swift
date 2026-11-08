@@ -1,5 +1,5 @@
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct RootView: View {
     @StateObject private var router = AppRouter()
@@ -50,16 +50,4 @@ struct RootView: View {
             }
         }
     }
-}
-
-#Preview {
-    RootView(
-        deps: AppDependencies(
-            container: try! ModelContainer(
-                for: CachedFilm.self,
-                ViewedFunFact.self,
-                configurations: ModelConfiguration(isStoredInMemoryOnly: true)
-            )
-        )
-    )
 }

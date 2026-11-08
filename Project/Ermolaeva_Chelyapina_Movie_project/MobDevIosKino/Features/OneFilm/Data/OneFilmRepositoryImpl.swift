@@ -7,7 +7,7 @@ final class OneFilmRepositoryImpl: OneFilmRepository {
         self.service = service
     }
 
-    func getAllInfo(filmId id: Int) async throws -> OneFilmModel { //filmId - имя при вызове, id - имя внутри функции
+    func getAllInfo(filmId id: Int) async throws -> OneFilmModel { // filmId - имя при вызове, id - имя внутри функции
         let dto: OneFilmDTO = try await service.request(
             endpoint: .exactFilm(id: id)
         )

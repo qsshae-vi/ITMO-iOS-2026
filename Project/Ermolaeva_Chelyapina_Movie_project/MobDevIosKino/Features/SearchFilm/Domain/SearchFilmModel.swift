@@ -1,6 +1,6 @@
 import Foundation
 
-struct SearchFilmModel : Identifiable{
+struct SearchFilmModel: Identifiable {
     let id: Int
     let title: String
     let year: String?

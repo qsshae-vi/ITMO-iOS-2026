@@ -38,7 +38,6 @@ struct FilmListOneElemView: View {
         }
         .frame(height: 122)
         .padding()
-        //.background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
     }
@@ -53,7 +52,7 @@ struct FilmListOneElemView: View {
             case .success(let image):
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill() 
 
             case .failure:
                 Color.gray.opacity(0.2)

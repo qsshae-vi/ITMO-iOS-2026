@@ -4,7 +4,6 @@ protocol GetOneFilmUseCase {
     func getFilm(filmId: Int) async throws -> OneFilmModel
 }
 
-
 final class GetOneFilmUseCaseImpl: GetOneFilmUseCase {
     private let repository: OneFilmRepository
 
@@ -16,4 +15,3 @@ final class GetOneFilmUseCaseImpl: GetOneFilmUseCase {
         try await repository.getAllInfo(filmId: filmId)
     }
 }
-

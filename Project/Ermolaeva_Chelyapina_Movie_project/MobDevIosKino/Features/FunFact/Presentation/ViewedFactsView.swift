@@ -52,14 +52,19 @@ struct ViewedFactsView: View {
         .listStyle(.plain)
     }
     
-    
     private func factCard(
         _ fact: ViewedFunFactModel
-    ) -> some View { let accent = Color(red:0.72, green:0.48, blue:0.57)
+    ) -> some View { let accent = Color(red: 0.72, green: 0.48, blue: 0.57)
         return VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing:10) {
-                Image(systemName:"sparkles")
-                    .font(.system(size:14)).foregroundStyle(accent).padding(9).background(accent.opacity(0.10), in: RoundedRectangle(cornerRadius: 10) )
+            HStack(spacing: 10) {
+                Image(systemName: "sparkles")
+                    .font(
+                        .system(size: 14))
+                    .foregroundStyle(accent)
+                    .padding(9)
+                    .background(accent.opacity(0.10),
+                                in: RoundedRectangle(cornerRadius: 10)
+                    )
             }
             Text(fact.filmTitle)
                 .font(.headline)

@@ -49,6 +49,6 @@ enum Endpoint {
 
 // контракт сетевого сервиса
 protocol NetworkService {
-    func request<T: Decodable>(endpoint : Endpoint)
+    func request<T: Decodable>(endpoint: Endpoint)
     async throws -> T
 }

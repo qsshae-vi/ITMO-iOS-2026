@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C432F73630A12718002BE3B2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C432F73530A12718002BE3B2 /* .swiftlint.yml */; };
 		C44BACA230892F6A00B89814 /* Secrets.xcconfig in Sources */ = {isa = PBXBuildFile; fileRef = C44BACA130892F6A00B89814 /* Secrets.xcconfig */; };
 		C4C6B1CB306565C300ED4479 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C4C6B1CA306565B100ED4479 /* .gitignore */; };
 		CE1DF5CF3080BC59006977A2 /* Secrets.example.xcconfig in Sources */ = {isa = PBXBuildFile; fileRef = CE1DF5CE3080BC42006977A2 /* Secrets.example.xcconfig */; };
@@ -34,6 +35,7 @@
 		000000000000000000000120 /* MobDevIosKino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobDevIosKino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C432F38E30A11404002BE3B2 /* MobDevIosKinoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobDevIosKinoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C432F39D30A11964002BE3B2 /* MobDevIosKinoUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobDevIosKinoUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C432F73530A12718002BE3B2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C44BACA130892F6A00B89814 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		C4C6B1CA306565B100ED4479 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CE1DF5CE3080BC42006977A2 /* Secrets.example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.example.xcconfig; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				CED340C1309BF5D400986D2F /* Secrets.xcconfig */,
+				C432F73530A12718002BE3B2 /* .swiftlint.yml */,
 				C4C6B1CA306565B100ED4479 /* .gitignore */,
 				000000000000000000000010 /* MobDevIosKino */,
 				C432F38F30A11404002BE3B2 /* MobDevIosKinoUITests */,
@@ -134,6 +137,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C432F60630A125C9002BE3B2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				000000000000000000000010 /* MobDevIosKino */,
@@ -222,6 +226,9 @@
 			);
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C432F60430A125B3002BE3B2 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 000000000000000000000020 /* Products */;
 			projectDirPath = "";
@@ -240,6 +247,7 @@
 			buildActionMask = 0;
 			files = (
 				CED340C2309BF5EB00986D2F /* Secrets.xcconfig in Resources */,
+				C432F73630A12718002BE3B2 /* .swiftlint.yml in Resources */,
 				C4C6B1CB306565C300ED4479 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +304,10 @@
 			isa = PBXTargetDependency;
 			target = 000000000000000100000000 /* MobDevIosKino */;
 			targetProxy = C432F3A130A11964002BE3B2 /* PBXContainerItemProxy */;
+		};
+		C432F60630A125C9002BE3B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = C432F60530A125C9002BE3B2 /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -643,6 +655,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C432F60430A125B3002BE3B2 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.65.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C432F60530A125C9002BE3B2 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C432F60430A125B3002BE3B2 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 000000000000000000000000 /* Project object */;
 }

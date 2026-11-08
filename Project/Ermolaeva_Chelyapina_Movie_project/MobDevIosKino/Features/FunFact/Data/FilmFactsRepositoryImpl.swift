@@ -9,7 +9,7 @@ final class FilmFactsRepositoryImpl: FilmFactsRepository {
         self.service = service
     }
 
-    func getFacts(filmId id: Int) async throws -> [FunFactModel] { //filmId - имя при вызове, id - имя внутри функции
+    func getFacts(filmId id: Int) async throws -> [FunFactModel] { // filmId - имя при вызове, id - имя внутри функции
         let response: FilmFactsResponseDTO = try await service.request(
             endpoint: .filmFacts(id: id)
         )

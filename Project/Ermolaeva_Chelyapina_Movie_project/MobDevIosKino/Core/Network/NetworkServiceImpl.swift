@@ -1,7 +1,7 @@
 import Foundation
 import OSLog
 
-final class NetworkServiceImpl : NetworkService { // final = класс без наследования
+final class NetworkServiceImpl: NetworkService { // final = класс без наследования
     private let session: URLSession
     private let apiKey: String
     private static let logger = Logger(subsystem: "network", category: "service")
@@ -13,9 +13,16 @@ final class NetworkServiceImpl : NetworkService { // final = класс без �
         self.apiKey = apiKey
     }
     
-    // универсальный метод для получения ответа и декодирования
     func request<T: Decodable>(endpoint: Endpoint) async throws -> T {
+        let request = try buildRequest(for: endpoint)
+        let (data, response) = try await performRequest(request)
         
+        try validate(response)
+        
+        return try decode(data)
+    }
+
+    private func buildRequest(for endpoint: Endpoint) throws -> URLRequest {
         guard let url = endpoint.url else {
             throw NetworkError.invalidURL
         }
@@ -23,73 +30,57 @@ final class NetworkServiceImpl : NetworkService { // final = класс без �
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(apiKey, forHTTPHeaderField: "X-API-KEY")
-        
-        let data: Data
-        let response: URLResponse
+        return request
+    }
+
+    private func performRequest(_ request: URLRequest) async throws -> (Data, URLResponse) {
         do {
-            (data, response) = try await session.data(for: request)
-            
+            return try await session.data(for: request)
         } catch let error as URLError {
             Self.logger.error("URLSession error: \(error.localizedDescription)")
-            
-            switch error.code {
-            case .notConnectedToInternet,
-                    .networkConnectionLost,
-                    .dataNotAllowed:
-                throw NetworkError.noConnection
-                
-            case .timedOut:
-             throw NetworkError.timeout
-                
-            case .cancelled:
-                throw CancellationError()
-                
-            default:
-                throw NetworkError.unknown
-            }
-            
+            throw mapURLError(error)
         } catch is CancellationError {
             throw CancellationError()
-            
         } catch {
             Self.logger.error("Unexpected network error: \(error)")
             throw NetworkError.unknown
         }
-        
-        // проверка на соответствие протоколу http
+    }
+
+    private func mapURLError(_ error: URLError) -> NetworkError {
+        switch error.code {
+        case .notConnectedToInternet, .networkConnectionLost, .dataNotAllowed:
+            return .noConnection
+        case .timedOut:
+            return .timeout
+        default:
+            return .unknown
+        }
+    }
+
+    private func validate(_ response: URLResponse) throws {
         guard let http = response as? HTTPURLResponse else {
             throw NetworkError.unknown
         }
         
-        // Успешные HTTP-коды: 200–299.
-        // Остальные передаём в NetworkError вместе с кодом.
         guard (200...299).contains(http.statusCode) else {
             Self.logger.error("HTTP error: \(http.statusCode)")
             throw NetworkError.server(statusCode: http.statusCode)
         }
-        
-        
-        // JSON из Data в Swift-модель типа T
+    }
+
+    private func decode<T: Decodable>(_ data: Data) throws -> T {
         do {
             return try Self.decoder.decode(T.self, from: data)
-            
         } catch DecodingError.keyNotFound(let key, _) {
-            // В JSON отсутствует обязательное поле
             Self.logger.error("Missing JSON key: \(key.stringValue)")
             throw NetworkError.decoding
-            
         } catch DecodingError.typeMismatch(let type, let context) {
-            // Тип значения в JSON не соответствует типу в DTO
-            Self.logger.error(
-                "Type mismatch: expected \(String(describing: type)), \(context.debugDescription)"
-            )
+            Self.logger.error("Type mismatch: expected \(String(describing: type)), \(context.debugDescription)")
             throw NetworkError.decoding
-            
         } catch {
-            // остальные ошибки декодирования
             Self.logger.error("Decoding failed: \(error)")
             throw NetworkError.decoding
         }
-        
     }
 }

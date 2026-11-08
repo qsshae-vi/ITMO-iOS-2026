@@ -7,7 +7,7 @@ struct OneFilmView: View {
     let onShowViewedFacts: () -> Void
     
     init(
-        viewModel: @autoclosure @escaping() -> OneFilmViewModel,
+        viewModel: @autoclosure @escaping () -> OneFilmViewModel,
         onShowFunFact: @escaping (String) -> Void,
         onShowViewedFacts: @escaping () -> Void
     ) {
@@ -125,16 +125,7 @@ struct OneFilmView: View {
                 
                 poster(film)
                 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(film.title)
-                        .font(.system(size: 30, weight: .bold, design: .rounded))
-                    
-                    if let originalTitle = film.originalTitle {
-                        Text(originalTitle)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-                }
+                headerBlock(film)
                 
                 filmInfo(film)
                 
@@ -152,62 +143,79 @@ struct OneFilmView: View {
                 
                 Divider()
                 
-                VStack(spacing: 20) {
-                    // Настройка спойлеров
-                    Toggle(
-                        isOn: Binding(
-                            get: { viewModel.hideSpoilers },
-                            set: { viewModel.setHideSpoilers($0) }
-                        )
-                    ) {
-                        Label {
-                            Text("Скрывать спойлеры")
-                                .font(.subheadline)
-                                .fontWeight(.medium)
-                        } icon: {
-                            Image(systemName: "eye.slash")
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    .tint(Color(red: 0.72, green: 0.48, blue: 0.57))
-                    .padding(16)
-                    .background(
-                        Color(.secondarySystemGroupedBackground),
-                        in: RoundedRectangle(cornerRadius: 16)
-                    )
-                    
-                    // Переход к интересному факту
-                    Button {
-                        onShowFunFact(film.title)
-                    } label: {
-                        HStack(spacing: 10) {
-                            Image(systemName: "sparkles")
-                                .font(.system(size: 16))
-                            
-                            Text("Интересный факт")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            
-                            Spacer()
-                            
-                            Image(systemName: "arrow.up.right")
-                                .font(.system(size: 13, weight: .medium))
-                        }
-                        .foregroundStyle(
-                            Color(red: 0.65, green: 0.38, blue: 0.49)
-                        )
-                        .padding(16)
-                        .background(
-                            Color(red: 0.72, green: 0.48, blue: 0.57)
-                                .opacity(0.09),
-                            in: RoundedRectangle(cornerRadius: 16)
-                        )
-                    }
-                    .buttonStyle(.plain)
-                }
+                settingsBlock(film)
             }
             .padding()
             
+        }
+    }
+    
+    private func headerBlock(_ film: OneFilmModel) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(film.title)
+                .font(.system(size: 30, weight: .bold, design: .rounded))
+            
+            if let originalTitle = film.originalTitle {
+                Text(originalTitle)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    private func settingsBlock(_ film: OneFilmModel) -> some View {
+        VStack(spacing: 20) {
+            // Тумблер
+            Toggle(
+                isOn: Binding(
+                    get: { viewModel.hideSpoilers },
+                    set: { viewModel.setHideSpoilers($0) }
+                )
+            ) {
+                Label {
+                    Text("Скрывать спойлеры")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                } icon: {
+                    Image(systemName: "eye.slash")
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .tint(Color(red: 0.72, green: 0.48, blue: 0.57))
+            .padding(16)
+            .background(
+                Color(.secondarySystemGroupedBackground),
+                in: RoundedRectangle(cornerRadius: 16)
+            )
+            
+            // Кнопка факта
+            Button {
+                onShowFunFact(film.title)
+            } label: {
+                HStack(spacing: 10) {
+                    Image(systemName: "sparkles")
+                        .font(.system(size: 16))
+                    
+                    Text("Интересный факт")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "arrow.up.right")
+                        .font(.system(size: 13, weight: .medium))
+                }
+                .foregroundStyle(
+                    Color(red: 0.65, green: 0.38, blue: 0.49)
+                )
+                .padding(16)
+                .background(
+                    Color(red: 0.72, green: 0.48, blue: 0.57)
+                        .opacity(0.09),
+                    in: RoundedRectangle(cornerRadius: 16)
+                )
+            }
+            .buttonStyle(.plain)
         }
     }
     

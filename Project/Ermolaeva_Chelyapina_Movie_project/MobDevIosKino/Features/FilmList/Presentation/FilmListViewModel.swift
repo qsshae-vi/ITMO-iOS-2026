@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 @MainActor
 final class FilmListViewModel: ObservableObject {
@@ -132,7 +132,6 @@ final class FilmListViewModel: ObservableObject {
         
         }
     }
-    
     
     private func errorMessage(for error: Error) -> String {
         if let urlError = error as? URLError {

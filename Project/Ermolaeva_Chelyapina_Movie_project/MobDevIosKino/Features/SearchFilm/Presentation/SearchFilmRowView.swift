@@ -44,7 +44,7 @@ struct SearchFilmRowView: View {
             case .success(let image):
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill() 
 
             case .failure:
                 Color.gray.opacity(0.2)

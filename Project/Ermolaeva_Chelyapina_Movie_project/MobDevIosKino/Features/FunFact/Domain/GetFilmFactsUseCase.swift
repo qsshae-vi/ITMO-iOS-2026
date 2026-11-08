@@ -17,4 +17,3 @@ final class GetFilmFactsUseCaseImpl: GetFilmFactsUseCase {
         try await repository.getFacts(filmId: filmId)
     }
 }
-
